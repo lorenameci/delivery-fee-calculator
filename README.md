@@ -17,7 +17,7 @@ A small Laravel-based microservice that calculates delivery fees based on type, 
 ## Installation
 
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/lorenameci/delivery-fee-calculator.git
 cd delivery-fee-calculator
 composer install
 cp .env.example .env
