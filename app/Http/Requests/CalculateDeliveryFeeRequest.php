@@ -3,6 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
+use App\Enums\DeliveryType;
 
 class CalculateDeliveryFeeRequest extends FormRequest
 {
@@ -24,7 +26,11 @@ class CalculateDeliveryFeeRequest extends FormRequest
         return [
             'destination' => 'required|string',
             'weight' => 'required|numeric|min:0',
-            'delivery_type' => 'required|in:standard,express',
+            'delivery_type' => [
+                    'required',
+                    'string',
+                    Rule::in(DeliveryType::values()),
+            ],        
         ];
     }
 }

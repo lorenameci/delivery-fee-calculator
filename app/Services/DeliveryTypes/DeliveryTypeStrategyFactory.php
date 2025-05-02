@@ -4,6 +4,7 @@ namespace App\Services\DeliveryTypes;
 
 use App\Services\DeliveryTypes\StandardDelivery;
 use App\Services\DeliveryTypes\ExpressDelivery;
+use App\Services\DeliveryTypes\OvernightDelivery;
 use InvalidArgumentException;
 
 class DeliveryTypeStrategyFactory
@@ -23,6 +24,7 @@ class DeliveryTypeStrategyFactory
         return match($type) {
             'standard' => new StandardDelivery(),
             'express' => new ExpressDelivery(),
+            'overnight' => new OvernightDelivery(),
             default => throw new InvalidArgumentException("Unsupported delivery type: $type"),
         };
     }
